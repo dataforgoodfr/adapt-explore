@@ -161,3 +161,14 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+# NextJS
+frontend/.next/
+frontend/out/
+frontend/node_modules/
+frontend/.pnp/
+frontend/.pnp.js
+frontend/yarn-error.log
+
+# Backend Python (déplacé dans backend/)
+backend/.venv/
