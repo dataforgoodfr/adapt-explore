@@ -5,7 +5,6 @@ documentation.
 
 # Contributing
 
-
 ## Installation
 
 - [Installation de Python](#installation-de-python)
@@ -29,13 +28,6 @@ Ou alors, utilisez la commande `uv run ...` (au lieu de `python ...`) pour lance
 ```bash
 uv run pipelines/run.py run build_database
 ```
-
-
-## Lancer les precommit-hook localement
-
-[Installer les precommit](https://pre-commit.com/)
-
-    pre-commit run --all-files
 
 ## Utiliser Tox pour tester votre code
 
