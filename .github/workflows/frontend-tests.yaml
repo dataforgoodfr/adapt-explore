@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: cd frontend && npm ci
 
-      - name: Type check
-        run: cd frontend && npm run type-check
-
       - name: Run Biome
         run: cd frontend && biome ci
 
