@@ -22,7 +22,7 @@ jobs:
         run: cd frontend && npm ci
 
       - name: Run Biome
-        run: cd frontend && biome ci
+        run: cd frontend && npx biome ci
 
       - name: Test
         run: cd frontend && npm test
