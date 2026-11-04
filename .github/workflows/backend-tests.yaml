@@ -37,5 +37,8 @@ jobs:
       - name: Run Ruff Format
         run: cd backend && uv run ruff format
 
+      - name: Type check
+        run: cd backend && uv run ty check
+
       - name: Run tests
         run: cd backend && uv run pytest -v
