@@ -1,34 +1,61 @@
-# Template DataForGood
+# Adpat Explore
 
-This file will become your README and also the index of your
-documentation.
+![schema d'architecture de l'application](https://github.com/dataforgoodfr/adapt-explore/blob/main/docs/project_schema.png?raw=true)
 
-# Contributing
+## ETL
 
-## Installation
+Dans le dossier `./backend`, un projet en python
 
-- [Installation de Python](#installation-de-python)
+## Application
 
-Ce projet utilise [uv](https://docs.astral.sh/uv/) pour la gestion des dépendances Python. Il est préréquis pour l'installation de ce projet.
+Dans le dossier `./frontend`, un projet en NextJS
 
-Une fois installé, il suffit de lancer la commande suivante pour installer la version de Python adéquate, créer un environnement virtuel et installer les dépendances du projet.
+## Application administration
 
-```bash
+Nous utilisont [NocoDB](https://docs.nocodb.com/) comme application d'administration. NocoDB est démarré via `compose.yml`
+
+Une fois démarrée l'application est disponible sur `http://localhost:3333`.
+
+Aucun paramétrages n'aient fait au démarrage de l'application donc à son premier lancement il vous faudra :
+
+- Créer un utilisateur super admin
+- Créer une intégration de la base de données `adpat_explore`
+- Ajouter cette intégration comme source de donnée
+
+## Variables d'environnement
+
+Copier le fichier `.env.example` et créer un fichier `.env`
+
+```
+cp .env.example .env
+```
+
+## Démarrer l'infrascruture
+
+```
+podman compose up -d
+# OU
+docker compose up -d
+```
+
+## Migration de schema
+
+Les migrations de schema sont gérer par [yoyo-migrations](https://ollycope.com/software/yoyo/latest/#).
+
+Dans le dossier `./database`, si c'est le premier lancement installez les dépendances
+
+```
 uv sync
 ```
 
-A l'usage, si vous utilisez VSCode, l'environnement virtuel sera automatiquement activé lorsque vous ouvrirez le projet. Sinon, il suffit de l'activer manuellement avec la commande suivante :
+Vérifier que la base de données est démarrée (cf. Démarrer l'infrascruture) et jouer les migrations
 
-```bash
-source .venv/bin/activate
+```
+uv run --env-file ../.env yoyo apply
 ```
 
-Ou alors, utilisez la commande `uv run ...` (au lieu de `python ...`) pour lancer un script Python. Par exemple:
+Pour ajouter un nouveau fichier de migration
 
-```bash
-uv run pipelines/run.py run build_database
 ```
-
-## Utiliser Tox pour tester votre code
-
-    tox -vv
+uv run --env-file ../.env yoyo new --sql -m "..."
+```
