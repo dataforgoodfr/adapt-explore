@@ -26,6 +26,10 @@ Aucun paramétrages n'aient fait au démarrage de l'application donc à son prem
 
 Copier le fichier `.env.example` et créer un fichier `.env`
 
+```
+cp .env.example .env
+```
+
 ## Démarrer l'infrascruture
 
 ```
