@@ -16,6 +16,7 @@ services:
     env_file: .env
     environment:
       NODE_ENV: production # required even in dev mode, "development" value throw an error
+      DATABASE_URL: '' # Avoid conflict between DATABASE_URL env var for the frontend and NocoDB
     ports:
       - 3333:3333
     depends_on:
