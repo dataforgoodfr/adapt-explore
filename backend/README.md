@@ -42,3 +42,17 @@ raw/
     └── {run_id}/
         ├── part-0001.jsonl      # ou original.csv, page-0001.html...
         └── manifest.json        # date, source, format, fichiers écrits
+
+
+# Vérifications locales
+
+Avant de créer une Pull Request, il est recommandé d'exécuter les commandes suivantes depuis le dossier backend/ :
+
+## Installer les dépendances, y compris celles de développement
+uv sync --all-groups
+
+## Vérifier la qualité du code
+uv run ruff check .
+
+## Corriger automatiquement les erreurs corrigibles
+uv run ruff check --fix .
