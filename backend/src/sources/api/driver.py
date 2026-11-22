@@ -1,4 +1,4 @@
-from drivers.base import BaseDriver
+from common.base import BaseDriver
 
 
 class ApiDriver(BaseDriver):

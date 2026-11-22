@@ -19,6 +19,9 @@ dependencies = [
     "requests>=2.32.3",
 ]
 
+[tool.ty.environment]
+root = ["./src"]
+
 [dependency-groups]
 dev = [
     "pytest>=9.2.0",
