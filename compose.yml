@@ -22,3 +22,17 @@ services:
     depends_on:
       db:
         condition: service_healthy
+  s3:
+    image: rustfs/rustfs:latest
+    ports:
+      - "9000:9000" # S3 API port
+      - "9001:9001" # Console port
+    environment:
+      - RUSTFS_ACCESS_KEY=${S3_ACCESS_KEY}
+      - RUSTFS_SECRET_KEY=${S3_SECRET_KEY}
+      - RUSTFS_CONSOLE_ENABLE=true
+    volumes:
+      - s3_data:/data
+    command: /data
+volumes:
+  s3_data:
