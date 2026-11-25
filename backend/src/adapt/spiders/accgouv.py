@@ -1,4 +1,3 @@
-
 import scrapy
 
 from scrapy import signals
@@ -13,20 +12,20 @@ from rich.progress import (
     TimeElapsedColumn,
 )
 
-from adaptaville.items import AdaptavilleItem
-from adaptaville.processing import HTMLProcessor
+from adapt.items.initiative import InitiativeItem
+from adapt.processors.accgouv import ACCGouvProcessor
 
-class AdaptavilleSpider(scrapy.Spider):
-    name = "adaptaville"
-    allowed_domains = ["adaptaville.fr"]
-    start_urls = ["https://www.adaptaville.fr/carte"]
+class ACCGouvSpider(scrapy.Spider):
+    name = "accgouv"
+    allowed_domains = ["www.adaptation-changement-climatique.gouv.fr"]
+    start_urls = ["https://www.adaptation-changement-climatique.gouv.fr/projets-locaux-financements/localisation#paragraph--21879"]
 
     def __init__(self, *args, **kwargs):
 
         # Initialise Driver
         super().__init__(*args, **kwargs)
 
-        self.processor = HTMLProcessor()
+        self.processor = ACCGouvProcessor(logger=self.logger)
         self.progress = None
         self.progress_task = None
 
@@ -62,60 +61,92 @@ class AdaptavilleSpider(scrapy.Spider):
             yield scrapy.Request(
                 url=url,
                 callback=self.parse_map, # collect data from map, change this to make a generalisation
-                errback=self.handle_error,
+                errback=self.check_access,
                 # Playwright is needed to access Javascript items in webpage
                 meta={
                     "playwright": True,
                     "playwright_page_methods": [
                         PageMethod(
-                            "wait_for_function",
-                            """() => window.map &&
-                            typeof window.map.eachLayer === 'function'""",
-                            timeout=50000,
+                                "wait_for_selector",
+                                ".geolocation-location[data-lat][data-lng]",
+                                state="attached", # present in DOM even if hidden
+                                timeout=50000,
                         ),
-                        PageMethod("wait_for_timeout", 2000),
                         PageMethod(
                             "evaluate",
-                            """() => {
-                                const markers = [];
+                            """(() => {
+                                // Get all geographical records
+                                const elements = document.querySelectorAll(
+                                    ".geolocation-location[data-lat][data-lng]"
+                                );
 
-                                window.map.eachLayer(layer => {
-                                    if (!(layer instanceof L.Marker)) return;
+                                const markers = [...elements].map((el, index) => {
+                                    const url = el.querySelector(".location-content a[href]"); 
 
-                                    const popup = layer.getPopup();
-                                    if (!popup) return;
+                                    const name =
+                                        el.querySelector(".location-title")
+                                            ?.textContent.trim()
+                                        || link?.textContent.trim()
+                                        || null;
 
-                                    const html = popup.getContent();
-                                    const doc = new DOMParser().parseFromString(html, "text/html");
-
-                                    const titleElement = doc.querySelector("a");
-                                    const rawHref = titleElement?.getAttribute("href");
-                                    const localisation = doc.querySelector('br')?.nextSibling?.textContent.trim();
-
-                                    markers.push({
-                                        nom: titleElement?.textContent?.trim() || null,
-                                        url: rawHref
-                                            ? new URL(rawHref, window.location.href).href
-                                            : null,
-                                        localisation: localisation,
-                                        lat: layer.getLatLng().lat,
-                                        lng: layer.getLatLng().lng,
-                                    });
+                                    return {
+                                        nom: name,
+                                        lat: Number(el.dataset.lat),
+                                        lng: Number(el.dataset.lng),
+                                        url: url
+                                            ? new URL(url.getAttribute("href"), document.baseURI).href
+                                            : null
+                                    };
                                 });
 
                                 return markers;
-                            }"""
+                            })();
+                        """
                         ),
                     ],
                 }
             )
+
+    def check_access(self, response):
+
+        self.logger.info("=" * 60)
+        self.logger.info("HTTP STATUS: %s", response.status)
+        self.logger.info("FINAL URL: %s", response.url)
+        self.logger.info(
+            "CONTENT TYPE: %s",
+            response.headers.get("Content-Type"),
+        )
+
+        body = response.text.lower()
+
+        indicators = [
+            "access denied",
+            "captcha",
+            "verify you are human",
+            "cloudflare",
+            "unusual traffic",
+            "request blocked",
+            "forbidden",
+            "security check",
+        ]
+
+        for indicator in indicators:
+            if indicator in body:
+                self.logger.warning(
+                    "Possible blocking indicator detected: %s",
+                    indicator,
+                )
+
+        self.logger.info("PAGE TITLE: %s", response.css("title::text").get())
+        self.logger.info("HTML PREVIEW: %s", response.text[:1500])
+        self.logger.info("=" * 60)
 
     # =============================
     # Extract Leaflet markers
     # =============================
     def parse_map(self, response):
         page_methods = response.meta["playwright_page_methods"]
-        markers = page_methods[2].result
+        markers = page_methods[1].result
 
         self.logger.info(f"Extracted {len(markers)} markers from map")
 
@@ -123,7 +154,7 @@ class AdaptavilleSpider(scrapy.Spider):
         self.progress.start()
 
         self.progress_task = self.progress.add_task(
-            "Scraping Adaptaville",
+            "Scraping ACCGouv",
             total=len(markers),
         )
 
@@ -148,18 +179,21 @@ class AdaptavilleSpider(scrapy.Spider):
         try:
             extracted_data = self.processor.process(response.text)
 
-            item = AdaptavilleItem()
+            item = InitiativeItem()
 
             item["nom"] = marker.get("nom")
             item["lat"] = marker.get("lat")
             item["lng"] = marker.get("lng")
 
-            item["type"] = extracted_data.get("type")
+            item["type_initiative"] = extracted_data.get("type_initiative")
             item["description"] = extracted_data.get("description")
             item["url"] = extracted_data.get("url") or marker.get("url")
             item["image_url"] = extracted_data.get("image_url")
             item["aleas"] = extracted_data.get("aleas")
             item["porteurs"] = extracted_data.get("porteurs")
+            # item["porteurs_laya_choice"] = extracted_data.get("porteurs_laya_choice")
+            # item["porteurs_laya_proba"] = extracted_data.get("porteurs_laya_proba")
+            
             item["localisation"] = extracted_data.get("localisation") or marker.get("localisation")
             item["email"] = extracted_data.get("email") 
             item["contact"] = extracted_data.get("contact")
@@ -202,7 +236,7 @@ class AdaptavilleSpider(scrapy.Spider):
         self.advance_progress()
 
     def build_failed_item(self, url, marker, error):
-        item = AdaptavilleItem()
+        item = InitiativeItem()
 
         item["nom"] = marker.get("nom")
         item["url"] = url

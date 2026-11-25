@@ -1,18 +1,21 @@
 
 import scrapy
 
-class AdaptavilleItem(scrapy.Item):
+class InitiativeItem(scrapy.Item):
 
     nom = scrapy.Field()
     lat = scrapy.Field()
     lng = scrapy.Field()
 
-    type = scrapy.Field()
+    type_initiative = scrapy.Field()
     description = scrapy.Field()
     url = scrapy.Field()
     image_url = scrapy.Field()
     aleas = scrapy.Field()
     porteurs = scrapy.Field()
+    #porteurs_laya_choice = scrapy.Field()
+    #porteurs_laya_proba = scrapy.Field()
+    domaine = scrapy.Field()
     localisation = scrapy.Field()
     email = scrapy.Field()
     contact = scrapy.Field()
