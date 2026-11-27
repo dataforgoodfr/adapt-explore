@@ -59,3 +59,35 @@ Pour ajouter un nouveau fichier de migration
 ```
 uv run --env-file ../.env yoyo new --sql -m "..."
 ```
+
+## Remplir la base de donnée
+
+Vous pouvez remplir la base de donnée avec données aléatoires, cela peut-être utile pendant les développements frontend
+
+Dans le dossier `./frontend`
+
+```
+# Remplir la database
+npm run db:seed -- --up
+
+# Truncate la database
+npm run db:seed -- --down
+```
+
+## Démarrer l'application frontend
+
+Dans le dossier `./frontend`
+
+```
+npm run dev
+```
+
+## Mettre à jour les schemas Drizzle
+
+Quand le schema de la base de donnée évolue il peut-être necessaire de mettre à jour les schemas Drizzle pour synchroniser les deux.
+
+Dans le dossier `./frontend`
+
+```
+npm run db:introspect
+```
