@@ -15,8 +15,8 @@ from rich.progress import (
 
 from collections import defaultdict
 
-from adapt.items.initiative import InitiativeItem
-from adapt.processors.adaptaville import AdaptavilleProcessor
+from adapt_spider.items.initiative import InitiativeItem
+from adapt_spider.processors.adaptaville import AdaptavilleProcessor
 
 class AdaptavilleSpider(scrapy.Spider):
     name = "adaptaville"

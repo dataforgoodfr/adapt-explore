@@ -6,7 +6,7 @@ import trafilatura
 from trafilatura import extract
 from trafilatura.metadata import extract_metadata
 
-from adapt.processors.base import BaseProcessor
+from adapt_spider.processors.base import BaseProcessor
 
 
 logger = logging.getLogger(__name__)

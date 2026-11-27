@@ -1,7 +1,7 @@
-BOT_NAME = "adapt"
+BOT_NAME = "adapt_spider"
 
-SPIDER_MODULES = ["adapt.spiders"]
-NEWSPIDER_MODULE = "adapt.spiders"
+SPIDER_MODULES = ["adapt_spider.spiders"]
+NEWSPIDER_MODULE = "adapt_spider.spiders"
 
 USER_AGENT = "AdaptResearchBot/1.0"
 

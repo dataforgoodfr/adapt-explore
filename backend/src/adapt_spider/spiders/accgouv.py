@@ -12,8 +12,8 @@ from rich.progress import (
     TimeElapsedColumn,
 )
 
-from adapt.items.initiative import InitiativeItem
-from adapt.processors.accgouv import ACCGouvProcessor
+from adapt_spider.items.initiative import InitiativeItem
+from adapt_spider.processors.accgouv import ACCGouvProcessor
 
 class ACCGouvSpider(scrapy.Spider):
     name = "accgouv"
