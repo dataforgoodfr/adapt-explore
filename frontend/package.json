@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "biome check --fix",
     "format": "biome format --write",
-    "test": "vitest",
+    "test": "dotenv run --file ../.env -- vitest",
     "typecheck": "next typegen && tsc --noEmit",
-    "db:introspect": "dotenv run --file ../.env -- drizzle-kit pull && cp ./drizzle/*.ts ./src/db"
+    "db:introspect": "dotenv run --file ../.env -- drizzle-kit pull && cp ./drizzle/*.ts ./src/db",
+    "db:seed": "dotenv run --file ../.env -- tsx seeders/local.seed.mts"
   },
   "dependencies": {
     "dotenv": "^18.0.10",
@@ -32,6 +33,7 @@
     "@vitejs/plugin-react": "^6.2.1",
     "babel-plugin-react-compiler": "1.0.0",
     "drizzle-kit": "^1.0.0-rc.5",
+    "drizzle-seed": "^1.0.0-rc.5",
     "jsdom": "^30.1.3",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
