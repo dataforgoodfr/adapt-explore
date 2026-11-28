@@ -1,7 +1,7 @@
-import { db } from "@/db/client";
-import { initiatives } from "@/db/schema";
 import { sql } from "drizzle-orm";
 import { cacheLife } from "next/cache";
+import { db } from "@/db/client";
+import { initiatives } from "@/db/schema";
 
 async function groupedByTypes() {
   "use cache";
