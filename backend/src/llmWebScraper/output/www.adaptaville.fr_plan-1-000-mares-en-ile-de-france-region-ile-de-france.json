@@ -2,15 +2,15 @@
   "Url": "https://www.adaptaville.fr/plan-1-000-mares-en-ile-de-france-region-ile-de-france",
   "Type_Initiative": "Initiative de terrain",
   "Lien_image": null,
-  "Description": "Programme de création et de restauration de mares dans l'Île-de-France pour préserver la biodiversité, restaurer les zones humides et renforcer la trame verte et bleue. Financement via le Contrat Vert et Bleu pour les communes, EPCI et syndicats.",
+  "Description": "Initiative visant à créer et restaurer 1 000 mares en Île-de-France pour préserver la biodiversité, restaurer les zones humides et consolider la trame verte et bleue. Financée par la Région Île-de-France via le Contrat Vert et Bleu.",
   "Aleas": [],
   "Type_Porteur_Initiative": "Collectivité",
-  "Nom_porteur": "Région Ile-de-France",
+  "Nom_porteur": "Région Île-de-France",
   "Localisation": [
     "Île-de-France"
   ],
   "Maturite": "Déployé",
-  "Commentaires": "Financement jusqu'à 80% des dépenses éligibles (max 5 000 € pour création, 2 500 € pour restauration). Dossiers à déposer toute l'année sur mesdemarches.iledefrance.fr. Contact : biodiversite@iledefrance.fr",
+  "Commentaires": "Financement via le Contrat Vert et Bleu (80% des dépenses éligibles). Contact : biodiversite@iledefrance.fr. Porteurs de projet : associations, collectivités, EPCI, syndicats.",
   "email": "biodiversite@iledefrance.fr",
   "Domain": "Forêt et biodiversité"
 }

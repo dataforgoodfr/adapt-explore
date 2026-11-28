@@ -1,0 +1,22 @@
+{
+  "Url": "https://www.adaptaville.fr/jardin-de-pluie",
+  "Type_Initiative": "Entreprise",
+  "Lien_image": null,
+  "Description": "Le Jardin de Pluie Urbain est un module conçu par Source Urbaine pour gérer les eaux pluviales et favoriser la végétalisation urbaine. Il combine stockage et infiltration des eaux de pluie, réduit les îlots de chaleur et améliore la biodiversité.",
+  "Aleas": [
+    "Canicule et chaleur",
+    "Inondation pluviale",
+    "Autre"
+  ],
+  "Type_Porteur_Initiative": "Entreprise",
+  "Nom_porteur": "Source Urbaine",
+  "Localisation": [
+    "Île-de-France",
+    "Saint Denis",
+    "Versailles"
+  ],
+  "Maturite": "Déployé",
+  "Commentaires": "Projet subventionné (10k€) à Saint Denis, coût de 600-1500€/m³, exemples d'implantation à Versailles et Paris. Intègre capteurs pour suivi hydrique et climatique.",
+  "email": null,
+  "Domain": "Eau"
+}

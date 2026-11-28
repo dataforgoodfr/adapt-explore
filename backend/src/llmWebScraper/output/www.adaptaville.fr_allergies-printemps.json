@@ -1,0 +1,31 @@
+{
+  "Url": "https://www.adaptaville.fr/allergies-printemps",
+  "Type_Initiative": "Outil ou service",
+  "Lien_image": null,
+  "Description": "Les Pollinariums sentinelles® sont des jardins regroupant les principales espèces allergisantes d'une région. Ils permettent de détecter précocement les émissions de pollens via des observations quotidiennes par des jardiniers professionnels, pour alerter les personnes allergiques et les médecins.",
+  "Aleas": [
+    "Autre"
+  ],
+  "Type_Porteur_Initiative": "Collectivité",
+  "Nom_porteur": "Ville de Paris",
+  "Localisation": [
+    "Paris",
+    "Rennes",
+    "Nantes",
+    "Saint-Nazaire",
+    "Angers",
+    "Laval",
+    "Cholet",
+    "La Roche-sur-Yon",
+    "La Rochelle",
+    "Sainte-Feyre",
+    "Limoges",
+    "Poitiers",
+    "Quimper",
+    "Le Havre"
+  ],
+  "Maturite": "Déployé",
+  "Commentaires": "Projet porté par la Ville de Paris (Service Parisien de Santé Environnementale et Service des Sciences du Végétal et de l’Agriculture Urbaine) en partenariat avec l’Association des Pollinariums Sentinelles® de France. Déployé depuis janvier 2023 avec diffusion d’alertes via alertepollens.org. Coûts d’implantation : 13 000 € pour la création, 100 €/an de licence, et adhésion annuelle à l’APSF.",
+  "email": "apsf@pollinarium.com",
+  "Domain": "Forêt et biodiversité"
+}

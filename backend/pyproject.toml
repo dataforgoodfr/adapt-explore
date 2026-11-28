@@ -17,6 +17,7 @@ dependencies = [
     "pandas>=2.2.3",
     "pytest>=9.2.0",
     "requests>=2.32.3",
+    "crawl4ai>=0.9.6",
 ]
 
 [dependency-groups]

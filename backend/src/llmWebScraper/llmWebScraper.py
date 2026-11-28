@@ -82,31 +82,22 @@ async def process_urls(urls: list[str], model_name: str, prompt_text: str, outpu
 
     # 4. Configuration du navigateur et des règles de crawl
     browser_config = BrowserConfig(
-        browser_type="chromium",
-        headless=False,  # Mettre False aide souvent à passer les WAF les plus stricts
-        user_agent=(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/131.0.0.0 Safari/537.36"
-        ),
-        headers={
-            "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-        },
-        extra_args=[
-            "--disable-blink-features=AutomationControlled",  # Masque navigator.webdriver
-            "--no-sandbox",
-        ],
-        verbose=False
+    browser_type="chromium",
+    headless=True,  # Plus rapide et fonctionne sans écran (serveur/Docker)
+    headers={
+        "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+    },
+    verbose=False
     )
     run_config = CrawlerRunConfig(
         extraction_strategy=extraction_strategy,
         markdown_generator=md_generator,
         cache_mode=CacheMode.BYPASS,
         word_count_threshold=50,
-        magic=True,                # Active les contournements anti-bot intégrés de Crawl4AI
-        simulate_user=True,        # Simule des mouvements de souris et un comportement humain
-        override_navigator=True,   # Falsifie les propriétés du navigateur pour masquer l'automatisation
+        check_robots_txt=True, # Respecte les consignes pour les robots des sites visités
+#        magic=True,                # Active les contournements anti-bot intégrés de Crawl4AI
+#        simulate_user=True,        # Simule des mouvements de souris et un comportement humain
+#        override_navigator=True,   # Falsifie les propriétés du navigateur pour masquer l'automatisation
         delay_before_return_html=2.0  # Laisse le temps aux scripts de vérification JS de s'exécuter
     )
 

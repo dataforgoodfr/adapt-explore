@@ -2,7 +2,7 @@
   "Url": "https://agirpourlatransition.ademe.fr/collectivites/aides-financieres/catalogue-rex/patrimoine-arbore",
   "Type_Initiative": "Initiative de terrain",
   "Lien_image": null,
-  "Description": "Orléans développe un patrimoine arboré pour lutter contre le réchauffement climatique, en plantant 500 arbres annuels depuis 2007 et en intégrant des mesures de biodiversité et de régulation thermique.",
+  "Description": "Orléans, ville de plus de 100 000 habitants, développe depuis les années 90 la nature en ville pour lutter contre le réchauffement climatique. Son PLU protège les îlots végétalisés et intègre un coefficient de biotope. Des arbres sont plantés annuellement pour créer des zones de fraîcheur, un inventaire de biodiversité est mené, et un guide technique pour les plantations est publié.",
   "Aleas": [
     "Canicule et chaleur"
   ],
@@ -10,11 +10,11 @@
   "Nom_porteur": "Ville d'Orléans",
   "Localisation": [
     "Orléans",
-    "Loiret",
-    "Centre-Val de Loire"
+    "Centre-Val de Loire",
+    "France"
   ],
-  "Maturite": "Déployé",
-  "Commentaires": "Budget de fonctionnement : 822 000 €. Solutions : implantation d'arbres, inventaire de biodiversité, guide technique pour les plantations. Lien vers le projet : https://plusfraichemaville.fr/retour-experience/projet/patrimoine-arbore-orleans",
-  "email": null,
-  "Domain": "Espace public et urbanisme"
+  "Maturite": "Déployé et évalué avec résultats",
+  "Commentaires": "Budget de fonctionnement : 822 000 €. Durée : depuis 2007. Lien vers le projet : https://plusfraichemaville.fr/retour-experience/projet/patrimoine-arbore-orleans",
+  "email": "ademe-fraude@ademe.fr",
+  "Domain": "Forêt et biodiversité"
 }

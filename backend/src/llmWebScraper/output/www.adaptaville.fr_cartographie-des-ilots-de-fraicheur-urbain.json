@@ -2,7 +2,7 @@
   "Url": "https://www.adaptaville.fr/cartographie-des-ilots-de-fraicheur-urbain",
   "Type_Initiative": "Outil ou service",
   "Lien_image": null,
-  "Description": "Cartographie des îlots de fraîcheur urbains pour identifier des espaces naturellement frais ou rafraîchis accessibles aux citadins lors des canicules. Les cartes incluent des parcs, musées, jeux d'eau, piscines, et autres lieux frais, avec des fonctionnalités de géolocalisation et d'horaires d'ouverture.",
+  "Description": "Cartographie des îlots de fraîcheur urbains pour identifier et répertorier les espaces naturellement frais ou rafraîchis accessibles aux citadins lors des canicules. Les cartes incluent des parcs, musées, jeux d'eau, piscines, et autres lieux frais, avec des fonctionnalités de géolocalisation et d'informations sur l'accessibilité.",
   "Aleas": [
     "Canicule et chaleur"
   ],
@@ -10,10 +10,19 @@
   "Nom_porteur": "Ville de Paris",
   "Localisation": [
     "Paris",
+    "Plaine Commune",
+    "Grand Paris Grand Est",
+    "Grand Paris Seine Ouest",
+    "Grenoble",
+    "Lyon",
+    "Clermont-Ferrand",
+    "La Rochelle",
+    "Nantes",
+    "Niort",
     "Île-de-France"
   ],
   "Maturite": "Déployé et évalué avec résultats",
-  "Commentaires": "La carte est disponible en open data, avec des partenariats avec des bailleurs sociaux (ex. campagne SMS en 2020). Elle fait partie de la « mallette canicule » et est diffusée via paris.fr, centres d'action sociale, et mairies.",
-  "email": "julie.roussele@ville.de.paris.fr",
+  "Commentaires": "La carte est mise en open data, utilisée via des applications, des cartes imprimées et des campagnes de communication. Une campagne SMS en 2020 a été menée par un bailleur social. Partenariats avec des services locaux et acteurs du territoire.",
+  "email": null,
   "Domain": "Espace public et urbanisme"
 }

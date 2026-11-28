@@ -1,0 +1,21 @@
+{
+  "Url": "https://www.adaptaville.fr/friche-urbaine-et-ecocitoyennete",
+  "Type_Initiative": "Initiative de terrain",
+  "Lien_image": null,
+  "Description": "Projet de transformation d'une friche industrielle en espace de biodiversité et d'agriculture urbaine, combinant végétalisation, gestion des eaux pluviales, restauration des sols et activités écocitoyennes pour renforcer la résilience climatique.",
+  "Aleas": [
+    "Canicule et chaleur",
+    "Inondation pluviale"
+  ],
+  "Type_Porteur_Initiative": "Association",
+  "Nom_porteur": "Association Halage",
+  "Localisation": [
+    "Île-Saint-Denis",
+    "Département de Seine-Saint-Denis",
+    "Île-de-France"
+  ],
+  "Maturite": "Déployé",
+  "Commentaires": "Financé par le Conseil Départemental de Seine-Saint-Denis, ADEME, fondations et partenaires. Le site inclut une ferme florale, un compostage électromécanique, et des expérimentations scientifiques. Difficultés liées à la pollution du sol et aux retards techniques.",
+  "email": null,
+  "Domain": "Espace public et urbanisme"
+}

@@ -1,0 +1,20 @@
+{
+  "Url": "https://www.adaptation-changement-climatique.gouv.fr/s-inspirer/projetotheque/desimpermeabiliser-et-vegetaliser-les-cours-decoles-les-cours-oasis-bry",
+  "Type_Initiative": "Initiative de terrain",
+  "Lien_image": null,
+  "Description": "La Ville de Bry-sur-Marne a transformé les cours d'école en espaces végétalisés (« cours Oasis ») pour réduire l'effet d'îlot de chaleur et le risque d'inondation, en désimperméabilisant les sols, en infiltrant les eaux pluviales et en implantant une végétation locale.",
+  "Aleas": [
+    "Canicule et chaleur",
+    "Inondation pluviale"
+  ],
+  "Type_Porteur_Initiative": "Collectivité",
+  "Nom_porteur": "Ville de Bry-sur-Marne",
+  "Localisation": [
+    "Val-de-Marne",
+    "Île-de-France"
+  ],
+  "Maturite": "Déployé",
+  "Commentaires": "Projet lancé en 2021, prévu pour 2024. Implique les élèves et enseignants. Supprime les rejets vers la Marne.",
+  "email": "mairie@bry94.fr",
+  "Domain": "Espace public et urbanisme"
+}
