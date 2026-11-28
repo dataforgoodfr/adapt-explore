@@ -1,0 +1,17 @@
+# Environnements et dépendances
+venv/
+.venv/
+env/
+node_modules/
+__pycache__/
+*.pyc
+
+# Fichiers sensibles et variables d'environnement
+.env
+*.pem
+*.key
+
+# Fichiers système et éditeurs
+.DS_Store
+.vscode/
+.idea/
