@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "biome check --fix",
     "format": "biome format --write",
-    "test": "dotenv run --file ../.env -- vitest",
+    "test": "vitest",
     "typecheck": "next typegen && tsc --noEmit",
     "db:introspect": "dotenv run --file ../.env -- drizzle-kit pull && cp ./drizzle/*.ts ./src/db",
     "db:seed": "dotenv run --file ../.env -- tsx seeders/local.seed.mts"
@@ -38,6 +38,7 @@
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",
+    "vite": "^8.4.0",
     "vitest": "^5.1.0"
   }
 }
