@@ -1,8 +1,8 @@
-import { db } from "@/db/client";
-import { reset, seed } from "drizzle-seed";
-import * as schema from "@/db/schema";
-import { parseArgs } from "node:util";
 import { exit } from "node:process";
+import { parseArgs } from "node:util";
+import { reset, seed } from "drizzle-seed";
+import { db } from "@/db/client";
+import * as schema from "@/db/schema";
 
 const args = parseArgs({
   options: {

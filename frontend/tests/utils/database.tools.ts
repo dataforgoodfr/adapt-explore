@@ -3,7 +3,7 @@ import { reset, seed } from "drizzle-seed";
 import * as schema from "@/db/schema";
 
 export const db = {
-  client: drizzle(process.env.DATABASE_URL!),
+  client: drizzle(process.env.DATABASE_URL as string),
   seed,
   reset,
   schema,
